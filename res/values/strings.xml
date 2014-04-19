@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Comunicações</string>
+
+    <string name="usuario">Usuário</string>
+
+    <string name="senha">Senha</string>
+
+    <string name="login">Login</string>
+
+</resources>
