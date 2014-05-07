@@ -5,22 +5,23 @@
     android:orientation="vertical" >
 
     <EditText
-        android:id="@+id/edtUsuario"
+        android:id="@+id/edtLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/usuario" />
 
     <EditText
-        android:id="@+id/edtSenha"
+        android:id="@+id/edtPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/senha"
+        android:hint="@string/password"
         android:inputType="textPassword" />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="login"
         android:text="@string/login" />
 
 </LinearLayout>

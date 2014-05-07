@@ -1,5 +1,6 @@
 package br.robhawk.android.comunicacoes.services;
 
+import static br.robhawk.android.comunicacoes.services.ServiceUtils.buildBundleFrom;
 import static br.robhawk.android.comunicacoes.services.ServiceUtils.buildEntityFrom;
 import static br.robhawk.android.comunicacoes.services.ServiceUtils.execute;
 import static br.robhawk.android.comunicacoes.services.ServiceUtils.isOk;
@@ -7,7 +8,7 @@ import static br.robhawk.android.comunicacoes.services.ServiceUtils.setBasicHead
 import static br.robhawk.android.comunicacoes.utils.IntentExtras.DTO;
 import static br.robhawk.android.comunicacoes.utils.IntentExtras.LINK;
 import static br.robhawk.android.comunicacoes.utils.IntentExtras.RECEIVER;
-import static br.robhawk.android.comunicacoes.utils.ResultCodes.LOGADO;
+import static br.robhawk.android.comunicacoes.utils.ResultCodes.LOGGED;
 
 import java.io.IOException;
 
@@ -57,6 +58,6 @@ public class UsuarioServices extends IntentService {
 		HttpResponse response = execute(post, LOGIN);
 
 		if (isOk(response))
-			receiver.send(LOGADO, null);
+			receiver.send(LOGGED, buildBundleFrom(response));
 	}
 }

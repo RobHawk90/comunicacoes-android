@@ -1,17 +1,21 @@
 package br.robhawk.android.comunicacoes.services;
 
 import static br.robhawk.android.comunicacoes.json.JsonParser.convertToJson;
+import static br.robhawk.android.comunicacoes.utils.IntentExtras.JSON;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 import org.apache.http.HttpResponse;
+import org.apache.http.ParseException;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicHeader;
+import org.apache.http.util.EntityUtils;
 
+import android.os.Bundle;
 import android.util.Log;
 
 public class ServiceUtils {
@@ -36,14 +40,22 @@ public class ServiceUtils {
 		DefaultHttpClient client = new DefaultHttpClient();
 		HttpResponse response = client.execute(request);
 		log(service, response);
+		Log.i("URL", request.getURI().toString());
 
 		return response;
 	}
 
-	public static boolean isOk(HttpResponse response) {
+	public static boolean isOk(HttpResponse response) throws ParseException, IOException {
 		int statusCode = response.getStatusLine().getStatusCode();
 
 		return statusCode == 200 || statusCode == 201;
+	}
+
+	public static Bundle buildBundleFrom(HttpResponse response) throws ParseException, IOException {
+		String json = EntityUtils.toString(response.getEntity());
+		Bundle bundle = new Bundle();
+		bundle.putString(JSON, json);
+		return bundle;
 	}
 
 	private static void log(String service, HttpResponse response) {

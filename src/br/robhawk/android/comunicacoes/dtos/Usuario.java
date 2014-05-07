@@ -6,8 +6,13 @@ public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private int id;
-	private String nome;
+	private String login;
 	private String senha;
+	private Permissao permissao;
+
+	public Usuario() {
+		setPermissao(Permissao.STAKEHOLDER);
+	}
 
 	public int getId() {
 		return id;
@@ -17,12 +22,12 @@ public class Usuario implements Serializable {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getLogin() {
+		return login;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
 	public String getSenha() {
@@ -31,5 +36,13 @@ public class Usuario implements Serializable {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public Permissao getPermissao() {
+		return permissao;
+	}
+
+	public void setPermissao(Permissao permissao) {
+		this.permissao = permissao;
 	}
 }

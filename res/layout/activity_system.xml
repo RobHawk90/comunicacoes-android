@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_margin"
+    tools:context="${packageName}.${activityClass}" >
+
+    <Button
+        android:id="@+id/btnManageStakeholders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/widget_margin"
+        android:onClick="manageStakeholders"
+        android:text="@string/manage_stakeholders" />
+
+    <Button
+        android:id="@+id/btnManageProject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="manageProjects"
+        android:text="@string/manage_projects" />
+
+</LinearLayout>

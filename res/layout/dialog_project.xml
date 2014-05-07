@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/edtName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/widget_margin"
+        android:hint="@string/name" />
+
+    <TextView
+        android:id="@+id/txtStartDateDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/widget_margin"
+        android:drawableLeft="@drawable/ic_calendar"
+        android:text="@string/start"
+        android:textSize="@dimen/text_medium" />
+
+    <TextView
+        android:id="@+id/txtEndDateDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/widget_margin"
+        android:drawableLeft="@drawable/ic_calendar"
+        android:text="@string/end"
+        android:textSize="@dimen/text_medium" />
+
+    <Button
+        android:id="@+id/btnAddOrEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addOrEditProject" />
+
+</LinearLayout>

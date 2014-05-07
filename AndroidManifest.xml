@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="10"
         android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,8 +15,12 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <service android:name="br.robhawk.android.comunicacoes.services.UsuarioServices" />
+        <service android:name="br.robhawk.android.comunicacoes.services.StakeholderServices" />
+        <service android:name="br.robhawk.android.comunicacoes.services.ProjectServices" />
+
         <activity
-            android:name="br.robhawk.android.comunicacoes.login.MainActivity"
+            android:name="br.robhawk.android.comunicacoes.activities.LoginActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,8 +28,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <service android:name="br.robhawk.android.comunicacoes.services.UsuarioServices" />
+        <activity
+            android:name="br.robhawk.android.comunicacoes.activities.SystemActivity"
+            android:label="@string/title_activity_system" >
+        </activity>
+        <activity
+            android:name="br.robhawk.android.comunicacoes.activities.StakeholderActivity"
+            android:label="@string/title_activity_stakeholder" >
+        </activity>
+        <activity
+            android:name="br.robhawk.android.comunicacoes.activities.ProjectActivity"
+            android:label="@string/title_activity_project" >
+        </activity>
     </application>
 
 </manifest>
