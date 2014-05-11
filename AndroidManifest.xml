@@ -15,12 +15,12 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <service android:name="br.robhawk.android.comunicacoes.services.UsuarioServices" />
-        <service android:name="br.robhawk.android.comunicacoes.services.StakeholderServices" />
-        <service android:name="br.robhawk.android.comunicacoes.services.ProjectServices" />
+        <service android:name="br.robhawk.android.comunicacoes.service.UsuarioServices" />
+        <service android:name="br.robhawk.android.comunicacoes.service.StakeholderServices" />
+        <service android:name="br.robhawk.android.comunicacoes.service.ProjectServices" />
 
         <activity
-            android:name="br.robhawk.android.comunicacoes.activities.LoginActivity"
+            android:name="br.robhawk.android.comunicacoes.activity.LoginActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,18 +28,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="br.robhawk.android.comunicacoes.activities.SystemActivity"
-            android:label="@string/title_activity_system" >
-        </activity>
-        <activity
-            android:name="br.robhawk.android.comunicacoes.activities.StakeholderActivity"
-            android:label="@string/title_activity_stakeholder" >
-        </activity>
-        <activity
-            android:name="br.robhawk.android.comunicacoes.activities.ProjectActivity"
-            android:label="@string/title_activity_project" >
-        </activity>
+        <activity android:name="br.robhawk.android.comunicacoes.activity.SystemActivity" />
+        <activity android:name="br.robhawk.android.comunicacoes.activity.StakeholderActivity" />
+        <activity android:name="br.robhawk.android.comunicacoes.activity.ProjectActivity" />
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@
 <resources>
 
     <string name="add">Adicionar</string>
+    <string name="added">Adicionado</string>
     <string name="addProject">Adicionar projeto</string>
     <string name="addStakeholder">Adicionar stakeholder</string>
     <string name="app_name">Comunicações</string>
@@ -13,18 +14,18 @@
     <string name="password">Senha</string>
     <string name="phone">Telefone</string>
     <string name="photo">Foto</string>
-    <string name="title_activity_stakeholder">StakeholderActivity</string>
-    <string name="title_activity_system">SystemActivity</string>
     <string name="usuario">Usuário</string>
     <string name="remove">Remover</string>
     <string name="edit">Editar</string>
     <string name="grant_permissions">Atribuir permissões</string>
-    <string name="title_activity_project">ProjectActivity</string>
     <string name="manage_projects">Gerenciar projetos</string>
     <string name="start">Início</string>
     <string name="end">Término</string>
     <string name="attach_stakeholders">Vincular stakeholders</string>
     <string name="project_removed">Projeto removido</string>
     <string name="project_added">Projeto adicionado</string>
+    <string name="edited">Editado</string>
+    <string name="shouldSelectAnItem">Voce deve selecionar pelo menos um item</string>
+    <string name="selectAnItem">Selecione um item</string>
 
 </resources>

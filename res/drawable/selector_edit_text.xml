@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_focused="true"><shape android:shape="rectangle">
+            <corners android:radius="2dp" />
+
+            <stroke android:width="2dp" android:color="@color/border" />
+
+            <gradient android:endColor="@color/focused_end" android:startColor="@color/focused_start" />
+        </shape></item>
+    <item><shape android:shape="rectangle">
+            <corners android:radius="2dp" />
+
+            <stroke android:width="2dp" android:color="@color/border" />
+
+            <padding android:bottom="@dimen/widget_margin" android:left="@dimen/widget_margin" android:right="@dimen/widget_margin" android:top="@dimen/widget_margin" />
+        </shape></item>
+
+</selector>

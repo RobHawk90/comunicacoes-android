@@ -3,7 +3,7 @@ package br.robhawk.android.comunicacoes.json;
 import java.io.IOException;
 import java.util.Date;
 
-import br.robhawk.android.comunicacoes.utils.DateFormater;
+import br.robhawk.android.comunicacoes.util.DateFormater;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;

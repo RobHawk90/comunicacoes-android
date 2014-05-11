@@ -2,22 +2,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:padding="@dimen/widget_margin" >
 
-    <EditText
+    <widget.EditText
         android:id="@+id/edtLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/widget_margin"
         android:hint="@string/usuario" />
 
-    <EditText
+    <widget.EditText
         android:id="@+id/edtPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/widget_margin"
         android:hint="@string/password"
         android:inputType="textPassword" />
 
-    <Button
+    <widget.Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

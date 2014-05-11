@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/addStakeholder"
+        android:icon="@drawable/ic_add_stakeholder"
+        android:title="@string/addStakeholder"/>
+    <item
+        android:id="@+id/attachStakeholders"
+        android:title="@string/attach_stakeholders"/>
+
+</menu>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="button">#334D5C</color>
+    <color name="button_pressed">#556F7E</color>
+    <color name="border">#112B3A</color>
+    <color name="border_pressed">#334D5C</color>
+    <color name="focused_start">#CCCCFF</color>
+    <color name="focused_end">#AAAAFF</color>
+    <color name="background">#E4E4E4</color>
+    <color name="ic1">#E27C3E</color>
+    <color name="ic2">#EFC84A</color>
+
+</resources>
