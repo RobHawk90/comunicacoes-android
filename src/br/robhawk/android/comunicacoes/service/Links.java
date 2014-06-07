@@ -2,12 +2,12 @@ package br.robhawk.android.comunicacoes.service;
 
 public class Links {
 
-	// private static final String SERVER =
-	// "http://comunicacoes-web.herokuapp.com/services";
+	private static final String SERVER = "http://comunicacoes-web.herokuapp.com/services";
 	// private static final String SERVER =
 	// "http://192.168.0.102:8080/services";
 	// private static final String SERVER = "http://192.168.1.48:8080/services";
-	private static final String SERVER = "http://192.168.43.188:8080/services";
+	// private static final String SERVER =
+	// "http://192.168.43.188:8080/services";
 
 	// UserServices
 	public static final String LOGIN_LINK = SERVER + "/usuario/login/";

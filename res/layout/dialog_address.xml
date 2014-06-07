@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:padding="@dimen/widget_margin" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <widget.EditText
+            android:id="@+id/edtStreet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/widget_margin"
+            android:hint="@string/street" />
+
+        <widget.EditText
+            android:id="@+id/edtNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/widget_margin"
+            android:hint="@string/number"
+            android:inputType="number" />
+
+        <widget.EditText
+            android:id="@+id/edtNeighbourhood"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/widget_margin"
+            android:hint="@string/Neighbourhood" />
+
+        <widget.EditText
+            android:id="@+id/edtPostalCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/widget_margin"
+            android:hint="@string/postalCode" />
+
+        <widget.EditText
+            android:id="@+id/edtCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/widget_margin"
+            android:hint="@string/city" />
+
+        <widget.EditText
+            android:id="@+id/edtState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/widget_margin"
+            android:hint="@string/state" />
+
+        <widget.EditText
+            android:id="@+id/edtCountry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/widget_margin"
+            android:hint="@string/country" />
+
+        <widget.Button
+            android:id="@+id/btnAddOrEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="addOrEditAddress" />
+    </LinearLayout>
+
+</ScrollView>
