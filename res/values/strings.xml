@@ -27,5 +27,14 @@
     <string name="edited">Editado</string>
     <string name="shouldSelectAnItem">Voce deve selecionar pelo menos um item</string>
     <string name="selectAnItem">Selecione um item</string>
+    <string name="street">Rua</string>
+    <string name="number">Número</string>
+    <string name="Neighbourhood">Bairro</string>
+    <string name="postalCode">CEP</string>
+    <string name="city">Cidade</string>
+    <string name="country">País</string>
+    <string name="state">Estado</string>
+    <string name="address">Endereço</string>
+    <string name="removeStakeholders">Remover stakeholders</string>
 
 </resources>

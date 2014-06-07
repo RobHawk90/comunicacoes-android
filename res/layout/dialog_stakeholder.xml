@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:padding="@dimen/widget_margin" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,50 +20,54 @@
             android:onClick="loadPhoto"
             android:src="@drawable/ic_photo" />
 
-        <EditText
+        <widget.EditText
             android:id="@+id/edtName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/widget_margin"
-            android:hint="@string/name" />
+            android:hint="@string/name"
+            android:imeOptions="actionNext" />
 
-        <EditText
+        <widget.EditText
             android:id="@+id/edtLoginStakeholder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/widget_margin"
-            android:hint="@string/login" />
+            android:hint="@string/login"
+            android:imeOptions="actionNext" />
 
-        <EditText
+        <widget.EditText
             android:id="@+id/edtPasswordStakeholder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/widget_margin"
             android:hint="@string/password"
+            android:imeOptions="actionNext"
             android:inputType="textPassword" />
 
-        <EditText
+        <widget.EditText
             android:id="@+id/edtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/widget_margin"
             android:hint="@string/email"
+            android:imeOptions="actionNext"
             android:inputType="textEmailAddress" />
 
-        <EditText
+        <widget.EditText
             android:id="@+id/edtPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/widget_margin"
             android:hint="@string/phone"
+            android:imeOptions="actionNext"
             android:inputType="phone" />
 
-        <Button
+        <widget.Button
             android:id="@+id/btnAddOrEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="addOrEditStakeholder"
-            android:text="@string/add" />
+            android:onClick="addOrEditStakeholder" />
     </LinearLayout>
 
 </ScrollView>

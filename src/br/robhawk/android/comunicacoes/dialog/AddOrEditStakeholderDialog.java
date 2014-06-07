@@ -109,4 +109,8 @@ public class AddOrEditStakeholderDialog {
 		edtPhone.setText(stakeholder.getTelefone());
 		btnAddOrEdit.setText(R.string.edit);
 	}
+
+	/*public void setAddress(Endereco adress) {
+		stakeholder.setEndereco(adress);
+	}*/
 }

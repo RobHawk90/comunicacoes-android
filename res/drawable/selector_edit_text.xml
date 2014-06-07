@@ -13,6 +13,8 @@
 
             <stroke android:width="2dp" android:color="@color/border" />
 
+            <solid android:color="@color/background" />
+
             <padding android:bottom="@dimen/widget_margin" android:left="@dimen/widget_margin" android:right="@dimen/widget_margin" android:top="@dimen/widget_margin" />
         </shape></item>
 

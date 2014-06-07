@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 import br.robhawk.android.comunicacoes.R;
 import br.robhawk.android.comunicacoes.adapter.StakeholderAdapter;
+import br.robhawk.android.comunicacoes.dialog.AddOrEditAddressDialog;
 import br.robhawk.android.comunicacoes.dialog.AddOrEditStakeholderDialog;
 import br.robhawk.android.comunicacoes.dto.Stakeholder;
 import br.robhawk.android.comunicacoes.helper.StakeholderHelper;
@@ -23,10 +24,12 @@ import br.robhawk.android.comunicacoes.util.Notifier;
 
 public class StakeholderActivity extends Activity {
 
-	private final int REQUEST_PHOTO = 0;
+	private static final int REQUEST_PHOTO = 0;
+	public static final int ATTACH_PROJECT = 1;
 
 	private StakeholderHelper helper;
-	private AddOrEditStakeholderDialog dialog;
+	private AddOrEditStakeholderDialog dialogStakeholder;
+	private AddOrEditAddressDialog dialogAddress;
 
 	private ListView list;
 
@@ -38,7 +41,8 @@ public class StakeholderActivity extends Activity {
 		helper = new StakeholderHelper(this);
 		helper.getStakeholders();
 
-		dialog = new AddOrEditStakeholderDialog(this);
+		dialogStakeholder = new AddOrEditStakeholderDialog(this);
+		dialogAddress = new AddOrEditAddressDialog(this);
 
 		list = (ListView) findViewById(R.id.listStakeholders);
 	}
@@ -52,23 +56,26 @@ public class StakeholderActivity extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
+		List<Stakeholder> stakeholders = getSelectedStakeholders();
+
 		switch (item.getItemId()) {
 		case R.id.addStakeholder:
-			dialog.show();
+			dialogStakeholder.show();
 			break;
 
 		case R.id.attachStakeholders:
-			StakeholderAdapter adapter = (StakeholderAdapter) list.getAdapter();
-			List<Stakeholder> stakeholders = adapter.getSelectedStakeholders();
-
 			if (stakeholders.isEmpty())
 				Notifier.showMessage(this, R.string.shouldSelectAnItem);
 			else {
 				String json = JsonParser.convertToJson(stakeholders);
 				Intent project = new Intent(this, ProjectActivity.class);
 				project.putExtra(JSON, json);
-				startActivity(project);
+				startActivityForResult(project, ATTACH_PROJECT);
 			}
+			break;
+
+		case R.id.removeStakeholders:
+			helper.remove(stakeholders);
 			break;
 
 		default:
@@ -78,6 +85,22 @@ public class StakeholderActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
+	private List<Stakeholder> getSelectedStakeholders() {
+		StakeholderAdapter adapter = (StakeholderAdapter) list.getAdapter();
+		List<Stakeholder> stakeholders = adapter.getSelectedStakeholders();
+
+		return stakeholders;
+	}
+
+	public void newAddress(View v) {
+		dialogAddress.show();
+	}
+
+	/*public void addOrEditAddress(View v) {
+		dialogStakeholder.setAddress(dialogAddress.getAdress());
+		dialogAddress.dismiss();
+	}*/
+
 	public void loadPhoto(View v) {
 		Intent fileChooser = new Intent(Intent.ACTION_GET_CONTENT);
 		fileChooser.setType("gagt/sdf");
@@ -85,15 +108,21 @@ public class StakeholderActivity extends Activity {
 	}
 
 	public void addOrEditStakeholder(View v) {
-		helper.addOrEdit(dialog.getStakeholder());
+		helper.addOrEdit(dialogStakeholder.getStakeholder());
 		helper.getStakeholders();
-		dialog.dismiss();
+		dialogStakeholder.dismiss();
 	}
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (requestCode == REQUEST_PHOTO && resultCode == RESULT_OK && data != null)
-			dialog.setPhotoView(data);
+			dialogStakeholder.setPhotoView(data);
+		else if (requestCode == ATTACH_PROJECT && data != null) {
+			String json = data.getStringExtra(JSON);
+			ArrayList<Stakeholder> stakeholders = JsonParser.convertToList(Stakeholder.class, json);
+			for (Stakeholder stakeholder : stakeholders)
+				helper.addOrEdit(stakeholder);
+		}
 
 		super.onActivityResult(requestCode, resultCode, data);
 	}
@@ -117,7 +146,7 @@ public class StakeholderActivity extends Activity {
 	}
 
 	public void showUpdateDialog(Stakeholder stakeholder) {
-		dialog.show(stakeholder);
+		dialogStakeholder.show(stakeholder);
 	}
 
 }

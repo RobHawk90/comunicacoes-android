@@ -1,9 +1,7 @@
 package br.robhawk.android.comunicacoes.dto;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import br.robhawk.android.comunicacoes.json.JsonDateDeserializer;
 import br.robhawk.android.comunicacoes.json.JsonDateSerializer;
@@ -18,11 +16,6 @@ public class Projeto implements Serializable {
 	private String nome;
 	private Date inicio;
 	private Date termino;
-	private List<Stakeholder> stakeholders;
-
-	public Projeto() {
-		stakeholders = new ArrayList<Stakeholder>();
-	}
 
 	public int getId() {
 		return id;
@@ -58,14 +51,6 @@ public class Projeto implements Serializable {
 	@JsonDeserialize(using = JsonDateDeserializer.class)
 	public void setTermino(Date termino) {
 		this.termino = termino;
-	}
-
-	public List<Stakeholder> getStakeholders() {
-		return stakeholders;
-	}
-
-	public void setStakeholders(List<Stakeholder> stakeholders) {
-		this.stakeholders.addAll(stakeholders);
 	}
 
 	@Override

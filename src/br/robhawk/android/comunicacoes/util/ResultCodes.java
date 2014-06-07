@@ -11,4 +11,6 @@ public class ResultCodes {
 	public static final int PROJECTS_FOUND = 7;
 	public static final int PROJECT_REMOVED = 8;
 	public static final int STAKEHOLDERS_ATTACHED = 9;
+	public static final int ADDRESS_ADDED = 10;
+	public static final int ADDRESS_EDITED = 11;
 }

@@ -5,10 +5,10 @@
     <color name="button_pressed">#556F7E</color>
     <color name="border">#112B3A</color>
     <color name="border_pressed">#334D5C</color>
-    <color name="focused_start">#CCCCFF</color>
-    <color name="focused_end">#AAAAFF</color>
+    <color name="focused_start">#DEE3E5</color>
+    <color name="focused_end">#A0AAB0</color>
     <color name="background">#E4E4E4</color>
-    <color name="ic1">#E27C3E</color>
-    <color name="ic2">#EFC84A</color>
+    <color name="module">#E27C3E</color>
+    <color name="module_pressed">#EFC84A</color>
 
 </resources>

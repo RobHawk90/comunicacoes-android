@@ -12,6 +12,8 @@ import static br.robhawk.android.comunicacoes.service.ServiceUtils.setBasicHeade
 import static br.robhawk.android.comunicacoes.util.IntentExtras.DTO;
 import static br.robhawk.android.comunicacoes.util.IntentExtras.LINK;
 import static br.robhawk.android.comunicacoes.util.IntentExtras.RECEIVER;
+import static br.robhawk.android.comunicacoes.util.ResultCodes.ADDRESS_ADDED;
+import static br.robhawk.android.comunicacoes.util.ResultCodes.ADDRESS_EDITED;
 import static br.robhawk.android.comunicacoes.util.ResultCodes.STAKEHOLDERS_FOUND;
 import static br.robhawk.android.comunicacoes.util.ResultCodes.STAKEHOLDER_ADDED;
 import static br.robhawk.android.comunicacoes.util.ResultCodes.STAKEHOLDER_EDITED;
@@ -36,6 +38,8 @@ public class StakeholderServices extends IntentService {
 	public static final String ADD_OR_EDIT_STAKEHOLDER = "addOrEditStakeholder:" + SERVICE_NAME;
 	public static final String GET_STAKEHOLDERS = "getStakeholders:" + SERVICE_NAME;
 	public static final String REMOVE_STAKEHOLDER = "removeStakeholder:" + SERVICE_NAME;
+	public static final String REMOVE_STAKEHOLDERS = "removeStakeholders:" + SERVICE_NAME;
+	public static final String ADD_OR_EDIT_ADDRESS = "addOrEditAddress:" + SERVICE_NAME;
 
 	private ResultReceiver receiver;
 
@@ -54,12 +58,42 @@ public class StakeholderServices extends IntentService {
 				addOrEditStakeholder(intent);
 			else if (action.equals(GET_STAKEHOLDERS))
 				getStakeholders(intent);
+			else if (action.equals(REMOVE_STAKEHOLDERS))
+				removeStakeholders(intent);
 			else if (action.equals(REMOVE_STAKEHOLDER))
 				removeStakeholder(intent);
+			else if (action.equals(ADD_OR_EDIT_ADDRESS))
+				addOrEditAddress(intent);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	private void removeStakeholders(Intent intent) throws ClientProtocolException, IOException {
+		String removeStakeholders = intent.getStringExtra(LINK);
+
+		HttpDelete delete = new HttpDelete(removeStakeholders);
+		setBasicHeaders(delete);
+
+		HttpResponse response = execute(delete, REMOVE_STAKEHOLDERS);
+
+		if (isPositive(response))
+			receiver.send(STAKEHOLDER_REMOVED, buildBundleFrom(response));
+	}
+
+	private void addOrEditAddress(Intent intent) throws ClientProtocolException, IOException {
+		String addOrEditAddress = intent.getStringExtra(LINK);
+
+		HttpPost post = new HttpPost(addOrEditAddress);
+		setBasicHeaders(post);
+
+		HttpResponse response = execute(post, ADD_OR_EDIT_ADDRESS);
+
+		if (isOk(response))
+			receiver.send(ADDRESS_EDITED, buildBundleFrom(response));
+		else if (isCreated(response))
+			receiver.send(ADDRESS_ADDED, buildBundleFrom(response));
 	}
 
 	private void removeStakeholder(Intent intent) throws ClientProtocolException, IOException {

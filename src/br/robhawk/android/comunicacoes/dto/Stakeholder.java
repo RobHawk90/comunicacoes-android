@@ -11,14 +11,16 @@ public class Stakeholder implements Serializable {
 	private String telefone;
 	private String foto;
 	private Usuario usuario;
-	private Endereco endereco;
-	private PlanoComunicacao planoComunicacao;
-	private EstrategiaGerenciamento estrategiaGerenciamento;
+	private Projeto projeto;
 
 	public Stakeholder() {
 		setUsuario(new Usuario());
-		setPlanoComunicacao(new PlanoComunicacao());
-		setEstrategiaGerenciamento(new EstrategiaGerenciamento());
+		/*
+		 * setUsuario(new Usuario()); setEndereco(new Endereco());
+		 * setPlanoComunicacao(new PlanoComunicacao());
+		 * setEstrategiaGerenciamento(new EstrategiaGerenciamento());
+		 * setProjeto(new Projeto());
+		 */
 	}
 
 	public int getId() {
@@ -69,28 +71,12 @@ public class Stakeholder implements Serializable {
 		this.usuario = usuario;
 	}
 
-	public Endereco getEndereco() {
-		return endereco;
+	public Projeto getProjeto() {
+		return projeto;
 	}
 
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-
-	public PlanoComunicacao getPlanoComunicacao() {
-		return planoComunicacao;
-	}
-
-	public void setPlanoComunicacao(PlanoComunicacao planoComunicacao) {
-		this.planoComunicacao = planoComunicacao;
-	}
-
-	public EstrategiaGerenciamento getEstrategiaGerenciamento() {
-		return estrategiaGerenciamento;
-	}
-
-	public void setEstrategiaGerenciamento(EstrategiaGerenciamento estrategiaGerenciamento) {
-		this.estrategiaGerenciamento = estrategiaGerenciamento;
+	public void setProjeto(Projeto projeto) {
+		this.projeto = projeto;
 	}
 
 	@Override

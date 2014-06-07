@@ -8,5 +8,8 @@
     <item
         android:id="@+id/attachStakeholders"
         android:title="@string/attach_stakeholders"/>
+    <item
+        android:id="@+id/removeStakeholders"
+        android:title="@string/removeStakeholders"/>
 
 </menu>

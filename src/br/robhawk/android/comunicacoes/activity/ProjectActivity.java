@@ -36,15 +36,20 @@ public class ProjectActivity extends Activity implements OnItemClickListener {
 
 	private ArrayList<Stakeholder> stakeholders;
 
+	private boolean attachStakeholders = false;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_project);
 
+		stakeholders = new ArrayList<Stakeholder>();
+
 		if (getIntent().getExtras() != null) {
 			String json = getIntent().getExtras().getString(JSON);
 
 			if (json != null && !json.isEmpty()) {
+				attachStakeholders = true;
 				stakeholders = JsonParser.convertToList(Stakeholder.class, json);
 				Notifier.showMessage(this, R.string.selectAnItem);
 			}
@@ -136,12 +141,16 @@ public class ProjectActivity extends Activity implements OnItemClickListener {
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-		if (stakeholders != null) {
+		if (attachStakeholders) {
 			ProjectAdapter adapter = (ProjectAdapter) parent.getAdapter();
 			Projeto project = adapter.getItem(position);
-			project.setStakeholders(stakeholders);
-			helper.addOrEdit(project);
-			stakeholders = null;
+			for (Stakeholder stakeholder : stakeholders)
+				stakeholder.setProjeto(project);
+			String json = JsonParser.convertToJson(stakeholders);
+			Intent data = new Intent();
+			data.putExtra(JSON, json);
+			setResult(StakeholderActivity.ATTACH_PROJECT, data);
+			finish();
 		}
 	}
 }

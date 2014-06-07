@@ -2,34 +2,36 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@color/background"
+    android:padding="@dimen/widget_margin" >
 
-    <EditText
+    <widget.EditText
         android:id="@+id/edtName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/widget_margin"
         android:hint="@string/name" />
 
-    <TextView
+    <widget.TextView
         android:id="@+id/txtStartDateDialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/widget_margin"
         android:drawableLeft="@drawable/ic_calendar"
-        android:text="@string/start"
-        android:textSize="@dimen/text_medium" />
+        android:gravity="center_vertical"
+        android:text="@string/start" />
 
-    <TextView
+    <widget.TextView
         android:id="@+id/txtEndDateDialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/widget_margin"
         android:drawableLeft="@drawable/ic_calendar"
-        android:text="@string/end"
-        android:textSize="@dimen/text_medium" />
+        android:gravity="center_vertical"
+        android:text="@string/end" />
 
-    <Button
+    <widget.Button
         android:id="@+id/btnAddOrEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

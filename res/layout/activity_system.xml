@@ -6,18 +6,20 @@
     android:padding="@dimen/activity_margin"
     tools:context="${packageName}.${activityClass}" >
 
-    <Button
+    <widget.ModuleView
         android:id="@+id/btnManageStakeholders"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/widget_margin"
+        android:drawableTop="@drawable/ic_stakeholder"
         android:onClick="manageStakeholders"
         android:text="@string/manage_stakeholders" />
 
-    <Button
+    <widget.ModuleView
         android:id="@+id/btnManageProject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:drawableTop="@drawable/ic_project"
         android:onClick="manageProjects"
         android:text="@string/manage_projects" />
 

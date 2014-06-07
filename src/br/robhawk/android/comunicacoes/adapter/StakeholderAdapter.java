@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnLongClickListener;
@@ -36,6 +37,7 @@ public class StakeholderAdapter extends ArrayAdapter<Stakeholder> {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		final Stakeholder stakeholder = getItem(position);
+		Log.e("stake", stakeholder.toString());
 		Bitmap photo = ImageEditor.decodeFrom(stakeholder, getContext(), 50);
 
 		View layout = inflater.inflate(R.layout.adapter_stakeholder, null);
@@ -57,12 +59,12 @@ public class StakeholderAdapter extends ArrayAdapter<Stakeholder> {
 					selecteds.remove(stakeholder);
 			}
 		});
-		
+
 		layout.setOnLongClickListener(new OnLongClickListener() {
 			@Override
 			public boolean onLongClick(View v) {
 				context.showUpdateDialog(stakeholder);
-				
+
 				return false;
 			}
 		});
